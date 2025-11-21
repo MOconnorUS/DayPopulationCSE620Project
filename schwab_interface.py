@@ -20,9 +20,9 @@ load_dotenv()
 message_received = []
 
 # Constant variables for each day (12 per day)
-DAY_ONE_COMPANIES = 'FUBO,ROKU,AFRM,ABNB,MSFT,ELF,NFLX,SPOT,ARM,GTLB,VEEV,XYZ'
-DAY_TWO_COMPANIES = 'TSLA,APPL,CART,COIN,GBX,DASH,SNAP,APP,IONQ,TOST,HIMS,CMG'
-DAY_THREE_COMPANIES = 'SBUX,CVNA,META,PLTR,FFIV,INTC,MEDP,IBM,SAP,IBKR,NKE,ADBE'
+DAY_ONE_COMPANIES = 'FUBO,ROKU,AFRM,ABNB,ELF,NFLX,SPOT,ARM,GTLB,VEEV,XYZ'
+DAY_TWO_COMPANIES = 'TSLA,CART,COIN,GBX,DASH,SNAP,APP,IONQ,TOST,HIMS,CMG'
+DAY_THREE_COMPANIES = 'SBUX,CVNA,META,PLTR,FFIV,INTC,IBM,SAP,IBKR,NKE,ADBE'
 
 def establish_client() -> schwabdev.Client:
     """
@@ -228,10 +228,10 @@ def main() -> None:
     client = establish_client()
     
     # Stream For Day 1 Companies
-    stream_thread = threading.Thread(target=start_stream, args=(DAY_ONE_COMPANIES,client,), daemon=True)
+    # stream_thread = threading.Thread(target=start_stream, args=(DAY_ONE_COMPANIES,client,), daemon=True)
     
     # Stream For Day 2 Companies
-    # stream_thread = threading.Thread(target=start_stream, args=(DAY_TWO_COMPANIES,client,), daemon=True)
+    stream_thread = threading.Thread(target=start_stream, args=(DAY_TWO_COMPANIES,client,), daemon=True)
     
     # Stream For Day 3 Companies
     # stream_thread = threading.Thread(target=start_stream, args=(DAY_THREE_COMPANIES,client,), daemon=True)
@@ -244,10 +244,10 @@ def main() -> None:
     time_format = "%I:%M:%S.%f %p"
 
     # Company Info For Day 1 Companies
-    company_info = populate_company_dict(DAY_ONE_COMPANIES)
+    # company_info = populate_company_dict(DAY_ONE_COMPANIES)
     
     # Company Info For Day 2 Companies
-    # company_info = populate_company_dict(DAY_TWO_COMPANIES)
+    company_info = populate_company_dict(DAY_TWO_COMPANIES)
     
     # Company Info For Day 3 Companies
     # company_info = populate_company_dict(DAY_THREE_COMPANIES)
@@ -276,10 +276,10 @@ def main() -> None:
 
         if company_info['Update Flag'] is True:
             # Update File For Day 1 Companies
-            update_file('Day1', DAY_ONE_COMPANIES, company_info, current_time)
+            # update_file('Day1', DAY_ONE_COMPANIES, company_info, current_time)
             
             # Update File For Dday 2 Companies
-            # update_file('Day2', DAY_TWO_COMPANIES, company_info, current_time)
+            update_file('Day2', DAY_TWO_COMPANIES, company_info, current_time)
             
             # Update File For Day 3 Companies
             # update_file('Day3', DAY_THREE_COMPANIES, company_info, current_time)

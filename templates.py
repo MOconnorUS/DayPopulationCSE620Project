@@ -32,8 +32,7 @@ COMPANY_CELL_TITLES = [
     'AY',
     'BF',
     'BM',
-    'BT',
-    'CA'
+    'BT'
 ]
 
 # Template to manage the information cells for each company
@@ -136,14 +135,5 @@ COMPANY_INFO_CELLS = {
         'BX',
         'BY',
         'BZ'
-    ],
-    11: [
-        'CA',
-        'CB',
-        'CC',
-        'CD',
-        'CE',
-        'CF',
-        'CG'
     ]
 }

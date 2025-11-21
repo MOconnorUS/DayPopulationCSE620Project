@@ -32,7 +32,6 @@ def create_file(name: str, companies: str) -> None:
     ws.merge_cells('BF1:BL1')
     ws.merge_cells('BM1:BS1')
     ws.merge_cells('BT1:BZ1')
-    ws.merge_cells('CA1:CG1')
 
     ws.merge_cells('A1:A2')
 
